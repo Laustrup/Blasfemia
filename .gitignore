@@ -1,0 +1,7 @@
+﻿## Global .gitignore file ##
+
+# Unnecesarilly file. Won't be added to git:
+/Temp/UnityLockfile
+
+# Will never ignore meta asset files:
+!/[Aa]ssets/**/*.meta
