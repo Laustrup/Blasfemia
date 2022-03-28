@@ -5,6 +5,8 @@ using entities;
 
 using UnityEngine;
 
+namespace scripts;
+
 public class Game
 {
 
@@ -21,7 +23,7 @@ public class Game
         }
     }
 
-    public void endOfDay() {
+    public void End_Of_Day() {
         for (int i = 0; i < communities.Count;i++)
         {
             communities[i].endOfDay();
