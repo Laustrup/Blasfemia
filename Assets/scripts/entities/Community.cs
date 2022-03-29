@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using creatures;
 using buildings;
@@ -10,15 +8,16 @@ namespace entities;
 
 public class Community : BehaviourEntity {
 
-    private Religion religion {get;}
+    private Religion _religion {get;} public Religion Religion { get{return _religion;}}
+    
+    private List<Follower> _followers {get; set; } public List<Follower> Followers { get{return _followers;} set{_followers = value;}}
+    private List<Building> _buildings {get; set; } public List<Building> Buildings { get{return _buildings;} set{_buildings = value;}}
+    private List<God> _gods {get; set; } public List<God> Gods { get{return _gods;} set{_gods=value;}}
 
-    private List<Follower> followers {get;}
-    private List<Building> buildings {get;}
-    private List<God> gods {get;}
+    private bool _isMonotheism {get; set; } public bool IsMonotheism { get{return _isMonotheism;} set{_isMonotheism = value;}}
 
-    private Boolean isMonotheism {get;}
-
-    private Calendar calendar {get;}
+    private Calendar _calendar { get; }
+    public Calendar Calendar { get { return _calendar; } }
 
     private float faith {get;}
     private float loyalty {get;}
@@ -34,20 +33,22 @@ public class Community : BehaviourEntity {
                     Religion religion, List<God> gods,
                     double taxPercentage) : base(title,description) {
 
-        this.religion = religion;
-        this.gods = gods;
+        this._religion = religion;
+        this._gods = gods;
 
-        if (gods.Count==1) {isMonotheism=true;}
-        else if (gods.Count>1) {isMonotheism=false;}
+        if (gods.Count==1) {_isMonotheism=true;}
+        else if (gods.Count>1) {_isMonotheism=false;}
 
-        followers = new List<Follower>();
-        buildings = new List<Building>();
+        _followers = new List<Follower>();
+        _buildings = new List<Building>();
 
         wealth = 0;
         this.taxPercentage = taxPercentage;
 
     }
-
+    
+    public List<Follower> Add_Follower(Follower follower) { _followers.Add(follower); return _followers; }
+    public List<God> Add_God(God god) { _gods.Add(god); return _gods; }
     public void Update() {
 
         commandmentEffectFollowers();
@@ -58,8 +59,8 @@ public class Community : BehaviourEntity {
     }
 
     private void commandmentEffectFollowers() {
-        for (int i = 0; i < followers.Count; i++) {
-            followers.get(i).commandmentsEffect(List<Commandments> religion.getCommandments());
+        for (int i = 0; i < _followers.Count; i++) {
+            _followers.get(i).commandmentsEffect(List<Commandments> _religion.getCommandments());
         }
     }
 
@@ -73,42 +74,5 @@ public class Community : BehaviourEntity {
         payTaxes();
         return calendar;
     }
-
-    public class Calendar {
-
-        private List<CalendarSection> sections {get;}
-        private string title {get;set;}
-
-        public Calendar(string title, List<CalendarSection> sections) {
-            this.title = title;    
-            this.sections = sections;
-        }
-
-        public void next() {
-            for (int i = sections.size(); i > 0;i--) {
-                if (sections.get(i).getValue()!=sections.get(i).getAllowedLength()) {
-                    sections.get(i).incrementValue();
-                    break;
-                }
-            }
-        } 
-
-        private class CalendarSection {
-
-            private int value {get;}
-            private int allowedLength {get;}
-            private string title {get;}
-
-            public CalendarSection(int value, int allowedLength, string title) {
-                this.value = value;
-                this.allowedLength = allowedLength;
-                this.title = title;
-            }
-
-            public int incrementValue() {
-                if (value!=allowedLength) {value++;}
-                return value;
-            }
-        }
-    }
+    
 }

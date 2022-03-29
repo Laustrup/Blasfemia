@@ -60,9 +60,11 @@
      <Compile Include="Assets\scripts\entities\creatures\Follower.cs" />
      <Compile Include="Assets\scripts\entities\services\subservices\CommunityService.cs" />
      <Compile Include="Assets\scripts\entities\Community.cs" />
+     <Compile Include="Assets\scripts\entities\Calendar.cs" />
      <Compile Include="Assets\scripts\entities\religions\commandments\Commandment.cs" />
      <Compile Include="Assets\scripts\entities\creatures\God.cs" />
      <Compile Include="Assets\scripts\entities\BehavoiurEntity.cs" />
+     <Compile Include="Assets\scripts\tests\CalendarTest.cs" />
      <Compile Include="Assets\scripts\Game.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.32f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
