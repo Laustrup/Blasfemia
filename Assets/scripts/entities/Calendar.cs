@@ -12,7 +12,11 @@ public class Calendar {
     
     private LeapValue _leapValue { get; } private bool isLeapValue { get; }
     
-    public Calendar(string title, List<CalendarSection> sections) { _title = title; _sections = sections; }
+    public Calendar(string title, List<CalendarSection> sections) { 
+        _title = title;
+        _sections = sections;
+        
+    }
 
     public void Next() {
         for (int i = _sections.Count; i > 0;i--) {

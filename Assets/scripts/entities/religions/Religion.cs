@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using commandments;
 using entities/BehaviourEntity;
 
 namespace religions;
