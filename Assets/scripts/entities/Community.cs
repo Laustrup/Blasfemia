@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using creatures;
 using buildings;
+using entities.creatures;
 using religions;
 using subservices;
 
@@ -44,7 +45,7 @@ public class Community : BehaviourEntity {
 
         wealth = 0;
         this.taxPercentage = taxPercentage;
-
+        
     }
     
     public List<Follower> Add_Follower(Follower follower) { _followers.Add(follower); return _followers; }

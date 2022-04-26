@@ -1,28 +1,56 @@
-using entities/BehaviourEntity;
+using System.Collections.Generic;
 using commandments;
+using creatures.enums;
+using entities;
 
 namespace creatures;
 
-public class Follower : BehaviourEntity {
+public abstract class Follower : BehaviourEntity {
 
-    private float faith {get; set;}
-    private float loyalty {get; set;}
-    private float happiness {get; set;}
-    private double wealth {get; set;}
-    private double income {get; set;}
+    protected float _faith { get; set; } public float Faith {get{return _faith;} set{_faith=value;}} 
+    protected float _loyalty { get; set; } public float Loyalty {get{return _loyalty;} set{_loyalty = value;}}
+    protected float _happiness { get; set; } public float Happiness {get{return _happiness;} set{_happiness = value;}}
+    
+    protected double _wealth { get; set; } public double Wealth {get{return _wealth;}} 
+    protected double _income { get; set; } public double Income {set{_income = value;}}
+    
+    protected AgeState _ageState { get; set; } public AgeState AgeState {get{return _ageState;}}
+    protected int _age { get; set; }
+    
+    protected List<Commandment> _commandments { get; set; }
 
-    public Follower(string title, string description) : base(title, description) {
-        faith = 100;
-        loyalty = 100;
-        happiness = 100;
-        wealth = 0;
-        income = 0;
+    public Follower(string title, string description) : base(title, description) 
+    {
+        _faith = 100;
+        _loyalty = 100;
+        _happiness = 100;
+        _wealth = 0;
+        _income = 0;
+        _age = 0;
+        _ageState = AgeState.Baby;
     }
 
-    public double addIncomeToWealth() {
-        wealth += income;
-        return wealth;
+    public double AddIncomeToWealth() 
+    {
+        _wealth += _income;
+        return _wealth;
     }
 
-    public abstract void commandmentsEffect(List<Commandments> commandments);
+    public List<Commandment> AddCommandment(Commandment commandment)
+    {
+        _commandments.Add(commandment);
+        return _commandments;
+    }
+
+    public List<Commandment> RemoveCommandments(string title)
+    {
+        for (int i = 0; i < _commandments.Count; i++)
+        {
+            if (_commandments[i].Title == title)
+            {
+                _commandments.
+            }
+        }
+    }
+
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>preview</LangVersion>
     <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
     <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
     <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
@@ -52,6 +52,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\audio\AudioPlayer.cs" />
+     <Compile Include="Assets\scripts\audio\sub_players\MusicPlayer.cs" />
+     <Compile Include="Assets\scripts\entities\creatures\enums\AgeState.cs" />
      <Compile Include="Assets\scripts\entities\religions\Religion.cs" />
      <Compile Include="Assets\scripts\entities\buildings\Building.cs" />
      <Compile Include="Assets\scripts\entities\services\Service.cs" />
@@ -66,6 +69,7 @@
      <Compile Include="Assets\scripts\entities\BehavoiurEntity.cs" />
      <Compile Include="Assets\scripts\tests\CalendarTest.cs" />
      <Compile Include="Assets\scripts\Game.cs" />
+     <Compile Include="Assets\scripts\tools\Liszt.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.32f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -725,6 +729,7 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\audios\Cutetrocuted.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

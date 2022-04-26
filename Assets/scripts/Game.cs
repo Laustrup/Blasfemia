@@ -4,10 +4,10 @@ using entities;
 public class Game
 {
 
-    private List<Community> communities { get; set; }
+    private Liszt<Community> communities { get; set; }
     private Calendar worldAge { get; set; }
     
-    public List<Community> Add_Community(Community community)
+    public Liszt<Community> Add_Community(Community community)
     {
         if (communities==null) {communities = new List<Community>();}
         communities.Add(community);
