@@ -1,18 +1,23 @@
-using System.Collections.Generic;
 using entities;
+using tools;
 
+/* Contains all the communities of a game as a collection.
+ *
+ * Has the amount of turns in form of the first created Calendar.
+ */
+
+// Author Laust Eberhardt Bonnesen
 public class Game
 {
-
     private Liszt<Community> communities { get; set; }
     private Calendar worldAge { get; set; }
     
-    public Liszt<Community> Add_Community(Community community)
+    public Liszt<Community> AddCommunity(Community community)
     {
-        if (communities==null) {communities = new List<Community>();}
+        if (communities==null) {communities = new Liszt<Community>();}
         communities.Add(community);
         
-        if (communities.Count==1)
+        if (communities.Size==1)
         {
             worldAge = community.Calendar;
             worldAge.Title = "World age";
@@ -20,13 +25,5 @@ public class Game
         }
         return communities;
         
-    }
-
-    public void End_Of_Day() {
-        for (int i = 0; i < communities.Count;i++)
-        {
-            communities[i].endOfDay();
-        }
-        worldAge.Next();
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using tools;
+using UnityEngine;
 
 namespace audio.sub_players;
 
@@ -13,7 +14,7 @@ public class MusicPlayer : AudioPlayer
     private void AddPaths()
     {
         // List of Paths
-        _sources.Add(GetComponent<AudioSource>("Assets/audios/Cutetrocuted.mp3"));
+        _sources.Add(GetComponent<AudioSource>());
     }
     
     

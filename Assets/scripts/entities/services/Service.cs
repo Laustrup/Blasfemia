@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
+/* Allows services classes to be of same class.
+ */
 
-namespace = services;
-
-public class Service {}
+// Author Laust Eberhardt Bonnesen
+namespace services; public abstract class Service {}

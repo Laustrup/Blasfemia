@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using commandments;
-using entities/BehaviourEntity;
+using entities;
+using tools;
 
 namespace religions;
 
-public class Religion : BehaviourEntity {
+/* A religion is a set of commandments, that will interact with the rules of a community
+ */
 
-    protected string symbolURL {get; set;};
+// Author Laust Eberhardt Bonnesen
+public abstract class Religion : BehaviourEntity {
 
-    protected List<Commandment> commandments {get;}
+    protected Liszt<Commandment> _commandments { get; set; } public Liszt<Commandment> Commandments { get{return _commandments;} }
 
-    public Religion(string title, string description, string symbolURL) : base(title,description) {
-        this.symbolURL = symbolURL;
-        commandments = new ArrayList();
-    }
+    public Religion(string title, string description) : base(title,description) { _commandments = new Liszt<Commandment>(); }
 
 }

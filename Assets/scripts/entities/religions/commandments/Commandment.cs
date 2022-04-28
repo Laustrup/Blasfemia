@@ -1,21 +1,27 @@
-using entities/BehaviourEntity;
+using entities;
 
 namespace commandments;
 
-public class Commandment : BehaviourEntity {
+/* An Commandment is what manipulates the interacting attributes of a community.
+ *
+ * It is part of a chosen religion.
+ */
 
-    private float faithEffect {get;}
-    private float loyaltyEffect {get;}
-    private float happinessEffect {get;}
-    private double incomeEffect {get;}
+// Author Laust Eberhardt Bonnesen
+public abstract class Commandment : BehaviourEntity {
+
+    protected float _faithEffect {get;}
+    protected float _loyaltyEffect {get;}
+    protected float _happinessEffect {get;}
+    protected double _incomeEffect {get;}
 
     public Commandment(string title, string description,
                         float faithEffect, float loyaltyEffect,
                         float happinessEffect, double incomeEffect) : base(title,description) {
-        this.faithEffect = faithEffect;
-        this.loyaltyEffect = loyaltyEffect;
-        this.happinessEffect = happinessEffect;
-        this.incomeEffect = incomeEffect;
+        _faithEffect = faithEffect;
+        _loyaltyEffect = loyaltyEffect;
+        _happinessEffect = happinessEffect;
+        _incomeEffect = incomeEffect;
     }
 
 }

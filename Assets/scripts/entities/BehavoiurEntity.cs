@@ -2,13 +2,21 @@ using UnityEngine;
 
 namespace entities;
 
-public class BehaviourEntity : MonoBehaviour {
+/* This entity is meant as a base for other entities. It is the highest form of base.
+ *
+ * It has a few attributes, that all entities posses.
+ *
+ * Also adapts the MonoBehaviour from UnityEngine, which allows for game actions such as Update().
+ */
+
+// Author Laust Eberhardt Bonnesen
+public abstract class BehaviourEntity : MonoBehaviour {
     
     protected string _title { get; set; } public string Title { get{return _title;} set{_title = value;}}
-    
-    protected string _description { get; } public string Description { get{return _description;}} 
+    protected string _description { get; } public string Description { get{return _description;}}
 
-    public BehaviourEntity(string title, string description) {
+    public BehaviourEntity(string title, string description) 
+    {
         _title = title;
         _description = description;
     }

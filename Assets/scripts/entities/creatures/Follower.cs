@@ -1,12 +1,14 @@
-using System.Collections.Generic;
 using commandments;
 using creatures.enums;
 using entities;
+using tools;
 
 namespace creatures;
 
+// Follower
 public abstract class Follower : BehaviourEntity {
 
+    // Interacting attributes
     protected float _faith { get; set; } public float Faith {get{return _faith;} set{_faith=value;}} 
     protected float _loyalty { get; set; } public float Loyalty {get{return _loyalty;} set{_loyalty = value;}}
     protected float _happiness { get; set; } public float Happiness {get{return _happiness;} set{_happiness = value;}}
@@ -14,10 +16,11 @@ public abstract class Follower : BehaviourEntity {
     protected double _wealth { get; set; } public double Wealth {get{return _wealth;}} 
     protected double _income { get; set; } public double Income {set{_income = value;}}
     
-    protected AgeState _ageState { get; set; } public AgeState AgeState {get{return _ageState;}}
     protected int _age { get; set; }
+    protected AgeState _ageState { get; set; } public AgeState AgeState {get{return _ageState;}}
     
-    protected List<Commandment> _commandments { get; set; }
+    // Liszts of entities
+    protected Liszt<Commandment> _commandments { get; set; }
 
     public Follower(string title, string description) : base(title, description) 
     {
@@ -36,21 +39,10 @@ public abstract class Follower : BehaviourEntity {
         return _wealth;
     }
 
-    public List<Commandment> AddCommandment(Commandment commandment)
+    public Liszt<Commandment> AddCommandment(Commandment commandment)
     {
         _commandments.Add(commandment);
         return _commandments;
-    }
-
-    public List<Commandment> RemoveCommandments(string title)
-    {
-        for (int i = 0; i < _commandments.Count; i++)
-        {
-            if (_commandments[i].Title == title)
-            {
-                _commandments.
-            }
-        }
     }
 
 }

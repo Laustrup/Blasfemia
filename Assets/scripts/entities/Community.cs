@@ -1,79 +1,79 @@
-using System.Collections.Generic;
 using creatures;
 using buildings;
-using entities.creatures;
 using religions;
 using subservices;
+using tools;
 
 namespace entities;
 
-public class Community : BehaviourEntity {
+/* Community is functioning as a team of either a god or gods, which determines whether it's mono-/polytheism.
+ * 
+ * The community has its own calendar, which differs from the games main calendar and is created from the time
+ * that it takes to create its community.
+ *
+ * There's a _communityService, that is responsive for all logic actions.
+ */
 
+// Author Laust Eberhardt Bonnesen
+public class Community : BehaviourEntity 
+{
+
+    // Single entity attributes
     private Religion _religion {get;} public Religion Religion { get{return _religion;}}
+    private Calendar _calendar { get; } public Calendar Calendar { get { return _calendar; } }
+    private CommunityService _communityService = new CommunityService();
     
-    private List<Follower> _followers {get; set; } public List<Follower> Followers { get{return _followers;} set{_followers = value;}}
-    private List<Building> _buildings {get; set; } public List<Building> Buildings { get{return _buildings;} set{_buildings = value;}}
-    private List<God> _gods {get; set; } public List<God> Gods { get{return _gods;} set{_gods=value;}}
+    // Liszts of entities
+    private Liszt<Follower> _followers {get; set; } public Liszt<Follower> Followers { get{return _followers;} set{_followers = value;}}
+    private Liszt<Building> _buildings {get; set; } public Liszt<Building> Buildings { get{return _buildings;} set{_buildings = value;}}
+    private Liszt<God> _gods {get; set; } public Liszt<God> Gods { get{return _gods;} set{_gods=value;}}
 
+    // Boolean attributes
     private bool _isMonotheism {get; set; } public bool IsMonotheism { get{return _isMonotheism;} set{_isMonotheism = value;}}
 
-    private Calendar _calendar { get; }
-    public Calendar Calendar { get { return _calendar; } }
+    // Interacting attributes
+    private float _faith { get; set; } public int Faith {get{return (int) _faith;}}
+    private float _loyalty { get; set; } public int Loyalty {get{return (int) _loyalty;}}
+    private float _happiness { get; set; } public int Happiness {get{return (int) _happiness;}}
 
-    private float faith {get;}
-    private float loyalty {get;}
-    private float happiness {get;}
+    private double _wealth {get; set;} public int Wealth {get{return (int) _wealth;}}
+    private double _income {get; set;}
+    private double _taxPercentage {get; set;} public double TaxPercentage {set{_taxPercentage += value;}} 
 
-    private double wealth {get; set;}
-    private double income {get; set;}
-    private double taxPercentage {get; set;}
-
-    private CommunityService communityService = new CommunityService();
 
     public Community(string title, string description,
-                    Religion religion, List<God> gods,
-                    double taxPercentage) : base(title,description) {
+                    Religion religion, Liszt<God> gods,
+                    double taxPercentage) : base(title,description) 
+    {
+        _religion = religion;
+        _gods = gods;
 
-        this._religion = religion;
-        this._gods = gods;
+        if (gods.Size==1) {_isMonotheism=true;}
+        else if (gods.Size>1) {_isMonotheism=false;}
 
-        if (gods.Count==1) {_isMonotheism=true;}
-        else if (gods.Count>1) {_isMonotheism=false;}
+        _followers = new Liszt<Follower>();
+        _buildings = new Liszt<Building>();
 
-        _followers = new List<Follower>();
-        _buildings = new List<Building>();
-
-        wealth = 0;
-        this.taxPercentage = taxPercentage;
-        
+        _wealth = 0;
+        _taxPercentage = taxPercentage;
     }
     
-    public List<Follower> Add_Follower(Follower follower) { _followers.Add(follower); return _followers; }
-    public List<God> Add_God(God god) { _gods.Add(god); return _gods; }
-    public void Update() {
-
+    public Liszt<Follower> Add_Follower(Follower follower) { _followers.Add(follower); return _followers; }
+    public Liszt<God> Add_God(God god) { _gods.Add(god); return _gods; }
+    public void Update() 
+    {
         commandmentEffectFollowers();
-        faith = communityService.calculateFaith();
-        loyalty = communityService.calculateLoyalty();
-        happiness = communityService.calculateHappiness();
-        income = communityService.calculateIncome();
+        _faith = _communityService.calculateFaith(_followers);
+        _loyalty = _communityService.calculateLoyalty(_followers);
+        _happiness = _communityService.calculateHappiness(_followers);
+        _income = _communityService.calculateIncome(_followers, _taxPercentage);
     }
 
-    private void commandmentEffectFollowers() {
-        for (int i = 0; i < _followers.Count; i++) {
-            _followers.get(i).commandmentsEffect(List<Commandments> _religion.getCommandments());
-        }
-    }
+    private void commandmentEffectFollowers() { for (int i = 1; i < _followers.Size; i++) { _followers.Get(i); } }
 
-    private double payTaxes() {
-        wealth += income;
-        return wealth;
+    private double payTaxes() 
+    {
+        _wealth += _income;
+        return _wealth;
     }
-    
-    public Calendar endOfDay() {
-        calendar.next();
-        payTaxes();
-        return calendar;
-    }
-    
 }
