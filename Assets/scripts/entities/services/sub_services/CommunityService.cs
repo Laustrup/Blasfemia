@@ -2,7 +2,7 @@ using services;
 using creatures;
 using tools;
 
-namespace subservices;
+namespace services.sub_services;
 
 /* This is where all the logic of a community is written
  */

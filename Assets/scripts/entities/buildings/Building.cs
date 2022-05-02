@@ -6,7 +6,7 @@ namespace buildings;
 
 public class Building : BehaviourEntity
 {
-    public Building(string title, string description) : base(title, description)
+    public Building(string title, string plural, string description) : base(title,plural, description)
     {
     }
 }

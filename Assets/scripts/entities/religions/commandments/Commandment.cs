@@ -15,9 +15,9 @@ public abstract class Commandment : BehaviourEntity {
     protected float _happinessEffect {get;}
     protected double _incomeEffect {get;}
 
-    public Commandment(string title, string description,
+    public Commandment(string title, string plural, string description,
                         float faithEffect, float loyaltyEffect,
-                        float happinessEffect, double incomeEffect) : base(title,description) {
+                        float happinessEffect, double incomeEffect) : base(title,plural,description) {
         _faithEffect = faithEffect;
         _loyaltyEffect = loyaltyEffect;
         _happinessEffect = happinessEffect;

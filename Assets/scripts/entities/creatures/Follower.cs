@@ -22,7 +22,7 @@ public abstract class Follower : BehaviourEntity {
     // Liszts of entities
     protected Liszt<Commandment> _commandments { get; set; }
 
-    public Follower(string title, string description) : base(title, description) 
+    public Follower(string title, string plural, string description) : base(title,plural, description) 
     {
         _faith = 100;
         _loyalty = 100;

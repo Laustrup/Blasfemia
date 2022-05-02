@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace entities;
@@ -13,11 +14,13 @@ namespace entities;
 public abstract class BehaviourEntity : MonoBehaviour {
     
     protected string _title { get; set; } public string Title { get{return _title;} set{_title = value;}}
+    protected string _plural { get; set; } public string Plural {get{return _plural;} set{_plural = value;}}
     protected string _description { get; } public string Description { get{return _description;}}
 
-    public BehaviourEntity(string title, string description) 
+    public BehaviourEntity(string title, string plural, string description) 
     {
         _title = title;
+        _plural = plural;
         _description = description;
     }
 }

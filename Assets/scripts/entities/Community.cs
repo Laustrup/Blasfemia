@@ -1,7 +1,7 @@
 using creatures;
 using buildings;
 using religions;
-using subservices;
+using services.sub_services;
 using tools;
 
 namespace entities;
@@ -41,9 +41,9 @@ public class Community : BehaviourEntity
     private double _taxPercentage {get; set;} public double TaxPercentage {set{_taxPercentage += value;}} 
 
 
-    public Community(string title, string description,
+    public Community(string title, string plural, string description,
                     Religion religion, Liszt<God> gods,
-                    double taxPercentage) : base(title,description) 
+                    double taxPercentage) : base(title,plural,description) 
     {
         _religion = religion;
         _gods = gods;
