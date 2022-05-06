@@ -1,5 +1,5 @@
 
-namespace commandments.sub_commandments
+namespace commandments.sub_commandments.sub_commandments
 {
     // Author Laust Eberhardt Bonnesen
     public class Charity : Commandment {

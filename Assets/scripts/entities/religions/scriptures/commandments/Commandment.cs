@@ -5,7 +5,7 @@
 
 using entities;
 
-namespace commandments
+namespace commandments.sub_commandments
 {
     // Author Laust Eberhardt Bonnesen
     public abstract class Commandment : BehaviourEntity {

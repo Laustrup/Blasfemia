@@ -1,5 +1,7 @@
-﻿using commandments;
-using tools.Liszt;
+﻿using commandments.sub_commandments;
+using religions.enums;
+using religions.scriptures;
+using tools;
 
 /* Inspired by the Roman/creek religion, mostly in focus of ancient europe.
  * 
@@ -11,14 +13,8 @@ namespace religions.sub_religions
     // Author Laust Eberhardt Bonnesen
     public class Somevetemajusaurne : Religion
     {
-        public Somevetemajusaurne() : base("Meveeamajusaurne","Meveeamajusaurnes",
-                "") { InitialCommandments(); }
-            
-            private Liszt<Commandment> InitialCommandments()
-            {
-                //_commandments.Add();
-                return _commandments;
-            }
+        public Somevetemajusaurne(ReligionType type, Scripture scripture) : base("Meveeamajusaurne","Meveeamajusaurnes",
+                "", type, scripture) { }
     }
 }
 

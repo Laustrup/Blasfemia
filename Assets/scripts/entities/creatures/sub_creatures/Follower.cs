@@ -1,7 +1,7 @@
-using commandments;
+using commandments.sub_commandments;
 using creatures.sub_creatures.enums;
 using religions;
-using tools.Liszt;
+using tools;
 
 namespace creatures.sub_creatures
 {

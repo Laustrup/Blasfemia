@@ -12,7 +12,7 @@ using static System.Console;
     Methods returns a string of print output.
  */
 
-namespace tools.Printer
+namespace tools
 {
     // Author Laust Eberhardt Bonnesen
     public static class Printer

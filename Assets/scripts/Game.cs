@@ -1,5 +1,5 @@
 using entities;
-using tools.Liszt;
+using tools;
 
 /* Contains all the communities of a game as a collection.
  *

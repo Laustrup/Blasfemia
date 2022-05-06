@@ -57,7 +57,7 @@
      <Compile Include="Assets\scripts\tools\Liszt.cs" />
      <Compile Include="Assets\scripts\entities\buildings\Building.cs" />
      <Compile Include="Assets\scripts\entities\services\Service.cs" />
-     <Compile Include="Assets\scripts\entities\religions\commandments\sub_commandments\Charity.cs" />
+     <Compile Include="Assets\scripts\entities\religions\scriptures\commandments\sub_commandments\Charity.cs" />
      <Compile Include="Assets\scripts\entities\religions\sub_religions\Juchis.cs" />
      <Compile Include="Assets\scripts\entities\creatures\sub_creatures\Follower.cs" />
      <Compile Include="Assets\scripts\audio\sub_players\MusicJockey.cs" />
@@ -66,7 +66,7 @@
      <Compile Include="Assets\scripts\entities\Community.cs" />
      <Compile Include="Assets\scripts\entities\Calendar.cs" />
      <Compile Include="Assets\scripts\entities\creatures\Creature.cs" />
-     <Compile Include="Assets\scripts\entities\religions\commandments\Commandment.cs" />
+     <Compile Include="Assets\scripts\entities\religions\scriptures\commandments\Commandment.cs" />
      <Compile Include="Assets\scripts\entities\creatures\enums\AgeState.cs" />
      <Compile Include="Assets\scripts\entities\creatures\sub_creatures\God.cs" />
      <Compile Include="Assets\scripts\entities\BehavoiurEntity.cs" />
@@ -76,6 +76,10 @@
      <Compile Include="Assets\scripts\tools\Printer.cs" />
      <Compile Include="Assets\scripts\entities\religions\sub_religions\Somevetemajusaurne.cs" />
      <Compile Include="Assets\scripts\Game.cs" />
+     <Compile Include="Assets\scripts\entities\religions\enums\ReligionType.cs" />
+     <Compile Include="Assets\scripts\entities\religions\scriptures\dogmas\Dogma.cs" />
+     <Compile Include="Assets\scripts\entities\religions\scriptures\dogmas\Belief.cs" />
+     <Compile Include="Assets\scripts\entities\religions\scriptures\Scripture.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.32f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -1,6 +1,8 @@
-using commandments;
 using commandments.sub_commandments;
-using tools.Liszt;
+using commandments.sub_commandments.sub_commandments;
+using religions.enums;
+using religions.scriptures;
+using tools;
 
 /* Inspired by the Abraham religion, mostly in focus of the west.
  *
@@ -13,14 +15,8 @@ namespace religions.sub_religions
     public class Juchis : Religion
     {
 
-        public Juchis() : base("Juchis", "Juchisians",
-            "") { InitialCommandments(); }
-
-        private Liszt<Commandment> InitialCommandments()
-        {
-            _commandments.Add(new Charity());
-            return _commandments;
-        }
+        public Juchis(ReligionType type, Scripture scripture) : base("Juchis", "Juchisians",
+            "", type, scripture) { }
     }
 }
 

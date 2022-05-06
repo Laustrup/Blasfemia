@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using audio.enums;
-using tools.Liszt;
-using tools.Printer;
+using tools;
 using UnityEngine;
 
 /* Will be able to play audio.

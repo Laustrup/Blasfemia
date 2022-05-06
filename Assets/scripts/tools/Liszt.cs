@@ -13,7 +13,7 @@ using System.Reflection;
     That way an object of T can quickly be returned and the whole array can be looped thru easily.
  */
 
-namespace tools.Liszt
+namespace tools
 {
     // Author Laust Eberhardt Bonnesen
     public class Liszt<T>

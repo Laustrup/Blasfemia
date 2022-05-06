@@ -1,5 +1,7 @@
-﻿using commandments;
-using tools.Liszt;
+﻿using commandments.sub_commandments;
+using religions.enums;
+using religions.scriptures;
+using tools;
 
 /* Inspired by the Assa religion, mostly in focus of scandinavia.
  *
@@ -12,14 +14,8 @@ namespace religions.sub_religions
     public class Denose : Religion
     {
         
-        public Denose() : base("Denose", "Denoses",
-            "") { InitialCommandments(); }
-        
-        private Liszt<Commandment> InitialCommandments()
-        {
-            //_commandments.Add();
-            return _commandments;
-        }
+        public Denose(ReligionType type, Scripture scripture) : base("Denose", "Denoses",
+            "", type, scripture) { }
     }
 }
 
