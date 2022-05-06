@@ -2,4 +2,4 @@
  */
 
 // Author Laust Eberhardt Bonnesen
-namespace services; public abstract class Service {}
+namespace services {public abstract class Service {}}

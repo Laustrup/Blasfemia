@@ -1,23 +1,26 @@
 using commandments;
-using tools;
-
-namespace religions.sub_religions;
+using commandments.sub_commandments;
+using tools.Liszt;
 
 /* Inspired by the Abraham religion, mostly in focus of the west.
  *
- * Named after the Abraham religions first to letters.
+ * Named after the Abraham religions first two letters.
  */
 
-// Author Laust Eberhardt Bonnesen
-public class Juchis : Religion
+namespace religions.sub_religions
 {
-
-    public Juchis() : base("Juchis", "Juchisians",
-        "") { InitialCommandments(); }
-
-    private Liszt<Commandment> InitialCommandments()
+    // Author Laust Eberhardt Bonnesen
+    public class Juchis : Religion
     {
-        _commandments.Add(new Charity());
-        return _commandments;
+
+        public Juchis() : base("Juchis", "Juchisians",
+            "") { InitialCommandments(); }
+
+        private Liszt<Commandment> InitialCommandments()
+        {
+            _commandments.Add(new Charity());
+            return _commandments;
+        }
     }
 }
+

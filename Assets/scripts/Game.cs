@@ -1,29 +1,33 @@
 using entities;
-using tools;
+using tools.Liszt;
 
 /* Contains all the communities of a game as a collection.
  *
  * Has the amount of turns in form of the first created Calendar.
  */
 
-// Author Laust Eberhardt Bonnesen
-public class Game
+namespace scripts.Game
 {
-    private Liszt<Community> communities { get; set; }
-    private Calendar worldAge { get; set; }
-    
-    public Liszt<Community> AddCommunity(Community community)
+    // Author Laust Eberhardt Bonnesen
+    public class Game
     {
-        if (communities==null) {communities = new Liszt<Community>();}
-        communities.Add(community);
+        private Liszt<Community> communities { get; set; }
+        private Calendar worldAge { get; set; }
         
-        if (communities.Size==1)
+        public Liszt<Community> AddCommunity(Community community)
         {
-            worldAge = community.Calendar;
-            worldAge.Title = "World age";
+            if (communities==null) {communities = new Liszt<Community>();}
+            communities.Add(community);
+            
+            if (communities.Size==1)
+            {
+                worldAge = community.Calendar;
+                worldAge.Title = "World age";
+                return communities;
+            }
             return communities;
+            
         }
-        return communities;
-        
     }
+
 }

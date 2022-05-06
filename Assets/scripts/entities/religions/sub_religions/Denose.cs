@@ -1,24 +1,25 @@
 ﻿using commandments;
-using tools;
-
-namespace religions.sub_religions;
+using tools.Liszt;
 
 /* Inspired by the Assa religion, mostly in focus of scandinavia.
  *
  * Named after the Scandinavian countries first to letters.
  */
 
-// Author Laust Eberhardt Bonnesen
-public class Denose : Religion
+namespace religions.sub_religions
 {
-    
-    public Denose() : base("Denose", "Denoses",
-        "") { InitialCommandments(); }
-    
-    private Liszt<Commandment> InitialCommandments()
+    // Author Laust Eberhardt Bonnesen
+    public class Denose : Religion
     {
-        //_commandments.Add();
-        return _commandments;
+        
+        public Denose() : base("Denose", "Denoses",
+            "") { InitialCommandments(); }
+        
+        private Liszt<Commandment> InitialCommandments()
+        {
+            //_commandments.Add();
+            return _commandments;
+        }
     }
-    
 }
+
