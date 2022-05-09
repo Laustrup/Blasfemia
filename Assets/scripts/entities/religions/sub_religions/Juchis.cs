@@ -1,8 +1,5 @@
-using commandments.sub_commandments;
-using commandments.sub_commandments.sub_commandments;
 using religions.enums;
 using religions.scriptures;
-using tools;
 
 /* Inspired by the Abraham religion, mostly in focus of the west.
  *

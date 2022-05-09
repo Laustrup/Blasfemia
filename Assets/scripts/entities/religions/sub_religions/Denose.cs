@@ -1,9 +1,7 @@
-﻿using commandments.sub_commandments;
-using religions.enums;
+﻿using religions.enums;
 using religions.scriptures;
-using tools;
 
-/* Inspired by the Assa religion, mostly in focus of scandinavia.
+/* Inspired by the Norse mythlogy, mostly in focus of scandinavia.
  *
  * Named after the Scandinavian countries first to letters.
  */

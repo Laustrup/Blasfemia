@@ -1,5 +1,6 @@
 using creatures.sub_creatures;
 using buildings;
+using commandments;
 using religions;
 using services;
 using tools;
@@ -28,28 +29,16 @@ namespace entities
         private Liszt<Building> _buildings {get; set; } public Liszt<Building> Buildings { get{return _buildings;} set{_buildings = value;}}
         private Liszt<God> _gods {get; set; } public Liszt<God> Gods { get{return _gods;} set{_gods=value;}}
 
-        // Boolean attributes
-        private bool _isMonotheism {get; set; } public bool IsMonotheism { get{return _isMonotheism;} set{_isMonotheism = value;}}
-
-        // Interacting attributes
-        private float _faith { get; set; } public int Faith {get{return (int) _faith;}}
-        private float _loyalty { get; set; } public int Loyalty {get{return (int) _loyalty;}}
-        private float _happiness { get; set; } public int Happiness {get{return (int) _happiness;}}
-
-        private double _wealth {get; set;} public int Wealth {get{return (int) _wealth;}}
-        private double _income {get; set;}
-        private double _taxPercentage {get; set;} public double TaxPercentage {set{_taxPercentage += value;}} 
-
-
         public Community(string title, string plural, string description,
                         Religion religion, Liszt<God> gods,
-                        double taxPercentage) : base(title,plural,description) 
+                        double taxPercentage) : base(title,plural,description,
+                                                    0,0,0,0,taxPercentage) 
         {
             _religion = religion;
             _gods = gods;
 
-            if (gods.Size==1) {_isMonotheism=true;}
-            else if (gods.Size>1) {_isMonotheism=false;}
+            if (gods.Size==1) {_religion.IsMonotheism=true;}
+            else if (gods.Size>1) {_religion.IsMonotheism=false;}
 
             _followers = new Liszt<Follower>();
             _buildings = new Liszt<Building>();
@@ -60,21 +49,28 @@ namespace entities
         
         public Liszt<Follower> Add_Follower(Follower follower) { _followers.Add(follower); return _followers; }
         public Liszt<God> Add_God(God god) { _gods.Add(god); return _gods; }
-        public void Update() 
+        public void Update()
         {
-            commandmentEffectFollowers();
-            _faith = _communityService.calculateFaith(_followers);
-            _loyalty = _communityService.calculateLoyalty(_followers);
-            _happiness = _communityService.calculateHappiness(_followers);
-            _income = _communityService.calculateIncome(_followers, _taxPercentage);
+            Liszt<Commandment> commandments = Religion.Scripture.Commandments;
+            for (int i = 1; i <= commandments.Size; i++)
+            {
+                IncreaseFaith(commandments.Get(i).Faith);
+                IncreaseLoyalty(commandments.Get(i).Loyalty);
+                IncreaseHappiness(commandments.Get(i).Happiness);
+                IncreaseIncome(commandments.Get(i).Income);
+            }
+            _wealth += CalculateTaxAmount();
         }
 
-        private void commandmentEffectFollowers() { for (int i = 1; i < _followers.Size; i++) { _followers.Get(i); } }
-
-        private double payTaxes() 
+        private double CalculateTaxAmount()
         {
-            _wealth += _income;
-            return _wealth;
+            double taxAmount = 0;
+            for (int i = 1; i <= _followers.Size; i++)
+            {
+                Follower follower = _followers.Get(i);
+                taxAmount += follower.Wealth * follower.TaxPercentage;
+            }
+            return taxAmount;
         }
     }
 }

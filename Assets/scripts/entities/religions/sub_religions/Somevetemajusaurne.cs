@@ -1,7 +1,5 @@
-﻿using commandments.sub_commandments;
-using religions.enums;
+﻿using religions.enums;
 using religions.scriptures;
-using tools;
 
 /* Inspired by the Roman/creek religion, mostly in focus of ancient europe.
  * 

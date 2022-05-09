@@ -1,4 +1,4 @@
-using commandments.sub_commandments;
+using commandments;
 using creatures.sub_creatures.enums;
 using religions;
 using tools;

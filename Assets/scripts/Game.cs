@@ -26,7 +26,6 @@ namespace scripts.Game
                 return communities;
             }
             return communities;
-            
         }
     }
 

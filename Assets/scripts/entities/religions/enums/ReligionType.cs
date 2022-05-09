@@ -1,1 +1,1 @@
-﻿namespace religions.enums { public enum ReligionType { Faithful, Mysticism, Mythical } }
+﻿namespace religions.enums { public enum ReligionType { Faithful, Mysticism, Mythical, Cult, Spiritual } }
