@@ -8,14 +8,6 @@ namespace creatures.sub_creatures
     // Follower
     public abstract class Follower : Creature {
 
-        // Interacting attributes
-        protected float _faith { get; set; } public float Faith {get{return _faith;} set{_faith=value;}} 
-        protected float _loyalty { get; set; } public float Loyalty {get{return _loyalty;} set{_loyalty = value;}}
-        protected float _happiness { get; set; } public float Happiness {get{return _happiness;} set{_happiness = value;}}
-        
-        protected double _wealth { get; set; } public double Wealth {get{return _wealth;}} 
-        protected double _income { get; set; } public double Income {set{_income = value;}}
-        
         protected int _age { get; set; }
         protected AgeState _ageState { get; set; } public AgeState AgeState {get{return _ageState;}}
         
